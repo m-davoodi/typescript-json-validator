@@ -23,9 +23,9 @@ export const DECLARE_KOA_CONTEXT = `export interface KoaContext {
 }`;
 
 export const importNamedTypes = (names: string[], relativePath: string) =>
-  `import {${names.join(', ')}} from '${relativePath}';`;
+  `import type {${names.join(', ')}} from '${relativePath}';`;
 export const importDefaultType = (name: string, relativePath: string) =>
-  `import ${name} from '${relativePath}';`;
+  `import type ${name} from '${relativePath}';`;
 export const importType = (
   name: string,
   relativePath: string,
@@ -45,7 +45,7 @@ export const declareAJV = (options: Ajv.Options) =>
 ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'));
 `;
 
-export const exportNamed = (names: string[]) => `export {${names.join(', ')}};`;
+export const exportNamed = (names: string[]) => `export type {${names.join(', ')}};`;
 
 export const declareSchema = (name: string, schema: TJS.Definition) =>
   `export const ${name} = ${stringify(schema, {space: 2})};`;
